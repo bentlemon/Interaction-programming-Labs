@@ -67,7 +67,7 @@ fun BasicLayout(modifier: Modifier = Modifier) {
             .fillMaxSize()
             .padding(16.dp)
     ) {
-        // Bild mellan TopBar och TextField
+        // Bild mellan TopBar och knappar
         Image(
             painter = painterResource(id = R.drawable.avatar_img), // Bildresurs
             contentDescription = "Example Image",
@@ -76,6 +76,60 @@ fun BasicLayout(modifier: Modifier = Modifier) {
                 .height(200.dp)
                 .padding(bottom = 16.dp) // Padding under bilden
         )
+
+        // Grid-liknande layout för knapparna
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(bottom = 16.dp), // Mellanrum mellan knappar och textfält
+            verticalArrangement = Arrangement.spacedBy(8.dp) // Mellanrum mellan rader
+        ) {
+            Row(
+                horizontalArrangement = Arrangement.spacedBy(8.dp) // Mellanrum mellan knappar i rad
+            ) {
+                Button(
+                    onClick = { /* Hantera klick */ },
+                    modifier = Modifier
+                        .weight(1f) // Låter knappen ta upp lika mycket plats som andra i raden
+                        .width(120.dp) // Bredd
+                        .height(50.dp) // Höjd
+                ) {
+                    Text("Button")
+                }
+                Button(
+                    onClick = { /* Hantera klick */ },
+                    modifier = Modifier
+                        .weight(1f)
+                        .width(120.dp) // Bredd
+                        .height(50.dp) // Höjd
+                ) {
+                    Text("Button")
+                }
+            }
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.spacedBy(8.dp)
+            ) {
+                Button(
+                    onClick = { /* Hantera klick */ },
+                    modifier = Modifier
+                        .weight(1f)
+                        .width(150.dp) // Bredd
+                        .height(50.dp) // Höjd
+                ) {
+                    Text("Button")
+                }
+                Button(
+                    onClick = { /* Hantera klick */ },
+                    modifier = Modifier
+                        .weight(1f)
+                        .width(150.dp) // Bredd
+                        .height(50.dp) // Höjd
+                ) {
+                    Text("Button")
+                }
+            }
+        }
 
         // Rad för text och inputfält
         Row(
